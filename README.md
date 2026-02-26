@@ -740,8 +740,8 @@ npm start
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/github/last-commit/yourusername/abyss-bot" alt="Last Commit">
-  <img src="https://img.shields.io/github/contributors/yourusername/abyss-bot" alt="Contributors">
-  <img src="https://img.shields.io/github/issues/yourusername/abyss-bot" alt="Issues">
-  <img src="https://img.shields.io/github/issues-pr/yourusername/abyss-bot" alt="Pull Requests">
+  <img src="https://img.shields.io/github/last-commit/rak-dev1/abyss" alt="Last Commit">
+  <img src="https://img.shields.io/github/contributors/rak-dev1/abyss" alt="Contributors">
+  <img src="https://img.shields.io/github/issues/rak-dev1/abyss" alt="Issues">
+  <img src="https://img.shields.io/github/issues-pr/rak-dev1/abyss" alt="Pull Requests">
 </p>

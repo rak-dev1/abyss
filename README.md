@@ -21,7 +21,7 @@
     <img src="https://img.shields.io/badge/Invite%20ABYSS-5865F2?logo=discord&logoColor=white" alt="Invite">
   </a>
   <a href="https://github.com/yourusername/abyss-bot/stargazers">
-    <img src="https://img.shields.io/github/stars/yourusername/abyss-bot?style=social" alt="Stars">
+    <img src="https://img.shields.io/github/stars/rak-dev1/abyss?style=social" alt="Stars">
   </a>
 </p>
 

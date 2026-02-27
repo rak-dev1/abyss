@@ -11,7 +11,7 @@
 
 <p align="center">
   <b>ABYSS</b> - A powerful, secure, and feature-rich Discord bot template to protect and manage your community. <br>
-  <b>100% Free • Open Source • Community Driven • AutoMod Badge Ready</b>
+  <b>100% Free • Open Source • Community Driven • AutoMod Ready</b>
 </p>
 
 <p align="center">

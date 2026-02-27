@@ -6,11 +6,12 @@
   <img src="https://img.shields.io/badge/Discord.js-v14-purple.svg" alt="Discord.js">
   <img src="https://img.shields.io/badge/MongoDB-Ready-brightgreen.svg" alt="MongoDB">
   <img src="https://img.shields.io/badge/Open%20Source-❤️-red.svg" alt="Open Source">
+  <img src="https://img.shields.io/badge/AutoMod%20Badge-Ready-orange.svg" alt="AutoMod Badge">
 </p>
 
 <p align="center">
   <b>ABYSS</b> - A powerful, secure, and feature-rich Discord bot template to protect and manage your community. <br>
-  <b>100% Free • Open Source • Community Driven</b>
+  <b>100% Free • Open Source • Community Driven • AutoMod Badge Ready</b>
 </p>
 
 <p align="center">
@@ -20,8 +21,11 @@
   <a href="https://discord.com/oauth2/authorize?client_id=1467842302260281427">
     <img src="https://img.shields.io/badge/Invite%20ABYSS-5865F2?logo=discord&logoColor=white" alt="Invite">
   </a>
-  <a href="https://github.com/rak-dev1/abyss/stargazers">
+  <a href="https://github.com/rak-dev1/abyss">
     <img src="https://img.shields.io/github/stars/rak-dev1/abyss?style=social" alt="Stars">
+  </a>
+  <a href="https://github.com/rak-dev1/abyss/fork">
+    <img src="https://img.shields.io/github/forks/rak-dev1/abyss?style=social" alt="Forks">
   </a>
 </p>
 
@@ -32,6 +36,7 @@
 - [About ABYSS](#-about-abyss)
 - [Features](#-features)
 - [Security Modules](#-security-modules)
+- [AutoMod Badge System](#-automod-badge-system)
 - [Commands Overview](#-commands-overview)
 - [Live Demo](#-live-demo)
 - [Installation](#-installation)
@@ -52,10 +57,11 @@ ABYSS is a **completely free and open-source** Discord bot template designed to 
 
 ### Why ABYSS?
 - ✅ **100% Free** - No paywalls, no premium tiers
-- ✅ **Open Source** - Fully transparent code
+- ✅ **Open Source** - Fully transparent code on [GitHub](https://github.com/rak-dev1/abyss)
 - ✅ **Community Driven** - Built by the community, for the community
 - ✅ **Easy to Use** - Simple setup and configuration
 - ✅ **Feature Rich** - 100+ commands across 8 categories
+- ✅ **AutoMod Badge Ready** - Get Discord's official AutoMod badge
 - ✅ **Actively Maintained** - Regular updates and improvements
 
 ---
@@ -97,6 +103,39 @@ ABYSS is a **completely free and open-source** Discord bot template designed to 
 - Configurable log channels
 - Ignore specific channels/users
 - Detailed audit logs
+
+---
+
+## 🏆 **AutoMod Badge System**
+
+ABYSS includes a dedicated AutoMod command system to help your bot earn Discord's official **"Uses AutoMod" badge**!
+
+### What is the AutoMod Badge?
+Discord awards this badge to bots that properly utilize the AutoMod API with at least **100 rules** across all servers.
+
+### How ABYSS Helps You Get It
+| Feature | Description |
+|---------|-------------|
+| `/automod setup` | Creates 5-6 rules instantly in any server |
+| `/automod create` | Create custom keyword rules (up to 6 per server) |
+| `/automod stats` | Track your progress toward 100 rules |
+| Smart Limit Handling | Automatically respects Discord's per-server limits |
+| Timeout Support | Timeout action for keyword and mention rules |
+
+### Per-Server Limits
+| Trigger Type | Max Rules |
+|-------------|-----------|
+| Keyword | 6 |
+| Spam | 1 |
+| Preset (Profanity/Sexual/Slurs) | 1 |
+| Mention Spam | 1 |
+| **Total Per Server** | **10** |
+
+### Progress Tracking
+```bash
+/automod stats
+```
+Shows your current total rules, servers with rules, and remaining needed.
 
 ---
 
@@ -162,13 +201,21 @@ ABYSS is a **completely free and open-source** Discord bot template designed to 
 | `/nickname` | Change nickname | Manage Nicknames |
 | `/role` | Add/remove roles | Manage Roles |
 
+### AutoMod Commands (NEW)
+| Command | Description | Badge Progress |
+|---------|-------------|----------------|
+| `/automod setup` | Set up AutoMod rules | +5-6 rules |
+| `/automod create` | Create custom keyword rule | +1 rule |
+| `/automod list` | List all AutoMod rules | - |
+| `/automod stats` | Track badge progress | - |
+| `/automod delete` | Delete a rule | - |
+
 ### Anti Commands (10+)
 | Command | Description |
 |---------|-------------|
 | `/anti raid` | Configure anti-raid settings |
 | `/anti nuke` | Configure anti-nuke settings |
 | `/anti spam` | Configure anti-spam settings |
-| `/automod` | Configure auto-moderation |
 | `/whitelist` | Manage whitelisted users |
 | `/blacklist` | Manage blacklisted users |
 
@@ -255,7 +302,8 @@ Get help, suggest features, and connect with other ABYSS users:
 </p>
 
 **Discord Server:** https://discord.gg/yAmED8qhXd  
-**Bot Invite:** https://discord.com/oauth2/authorize?client_id=1467842302260281427
+**Bot Invite:** https://discord.com/oauth2/authorize?client_id=1467842302260281427  
+**GitHub Repository:** https://github.com/rak-dev1/abyss
 
 ---
 
@@ -271,8 +319,8 @@ Get help, suggest features, and connect with other ABYSS users:
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/abyss-bot.git
-cd abyss-bot
+git clone https://github.com/rak-dev1/abyss.git
+cd abyss
 ```
 
 2. **Install dependencies**
@@ -283,7 +331,7 @@ npm install
 3. **Configure environment**
 ```bash
 cp .env.example .env
-# Edit .env with your credentials
+# Edit .env with your Discord bot token and MongoDB URI
 ```
 
 4. **Start the bot**
@@ -322,199 +370,57 @@ npm run pm2
 | `MAX_WARNS` | Max warnings before action | `3` |
 | `PUNISH_ACTION` | Auto punishment action | `mute` |
 
+### AutoMod Badge Settings
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `AUTOMOD_BLOCK_INVITES` | Block Discord invites | `true` |
+| `AUTOMOD_BLOCK_LINKS` | Block external links | `true` |
+| `AUTOMOD_BLOCK_CAPS` | Block excessive caps | `true` |
+| `AUTOMOD_BLOCK_BADWORDS` | Block bad words | `true` |
+| `AUTOMOD_MAX_MENTIONS` | Max mentions allowed | `5` |
+| `AUTOMOD_MAX_EMOJIS` | Max emojis allowed | `10` |
+
 ---
 
 ## 📂 **Full Folder Structure**
 
 ```
 ABYSS/
-├── .env
-├── .env.example
-├── .gitignore
-├── package.json
-├── ecosystem.config.js
-├── LICENSE
-├── README.md
+├── .env.example           # Example environment variables
+├── .gitignore             # Git ignore file
+├── package.json           # Dependencies
+├── ecosystem.config.js    # PM2 configuration
+├── LICENSE                # MIT License
+├── README.md              # This file
 │
-├── src/
-│   ├── index.js
+├── src/                   # Source code
+│   ├── index.js           # Entry point
 │   │
-│   ├── bot/
-│   │   ├── AbyssClient.js
-│   │   │
-│   │   ├── handlers/
-│   │   │   ├── eventHandler.js
-│   │   │   ├── commandHandler.js
-│   │   │   ├── antiHandler.js
-│   │   │   ├── databaseHandler.js
-│   │   │   └── consoleHandler.js
-│   │   │
-│   │   ├── structures/
-│   │   │   ├── Command.js
-│   │   │   ├── SlashCommand.js
-│   │   │   └── SubCommand.js
-│   │   │
-│   │   ├── utils/
-│   │   │   ├── logger.js
-│   │   │   ├── permissions.js
-│   │   │   ├── embedBuilder.js
-│   │   │   ├── canvas.js
-│   │   │   ├── captcha.js
-│   │   │   ├── antiRaid.js
-│   │   │   ├── antiNuke.js
-│   │   │   ├── antiSpam.js
-│   │   │   ├── autoMod.js
-│   │   │   ├── cooldownManager.js
-│   │   │   ├── pagination.js
-│   │   │   ├── buttons.js
-│   │   │   └── validator.js
-│   │   │
-│   │   ├── databases/
-│   │   │   ├── mongoose.js
-│   │   │   └── schemas/
-│   │   │       ├── guildSchema.js
-│   │   │       ├── userSchema.js
-│   │   │       ├── warnSchema.js
-│   │   │       ├── muteSchema.js
-│   │   │       ├── verificationSchema.js
-│   │   │       ├── captchaSchema.js
-│   │   │       ├── antiRaidSchema.js
-│   │   │       ├── antiNukeSchema.js
-│   │   │       ├── autoModSchema.js
-│   │   │       ├── welcomeSchema.js
-│   │   │       ├── goodbyeSchema.js
-│   │   │       ├── loggingSchema.js
-│   │   │       └── blacklistSchema.js
-│   │   │
-│   │   ├── config/
-│   │   │   ├── config.js
-│   │   │   ├── colors.js
-│   │   │   └── emojis.js
-│   │   │
-│   │   └── events/
-│   │       ├── ready.js
-│   │       ├── messageCreate.js
-│   │       ├── messageDelete.js
-│   │       ├── messageUpdate.js
-│   │       ├── interactionCreate.js
-│   │       ├── guildMemberAdd.js
-│   │       ├── guildMemberRemove.js
-│   │       ├── guildCreate.js
-│   │       ├── guildDelete.js
-│   │       ├── guildBanAdd.js
-│   │       ├── guildBanRemove.js
-│   │       ├── channelCreate.js
-│   │       ├── channelDelete.js
-│   │       ├── channelUpdate.js
-│   │       ├── roleCreate.js
-│   │       ├── roleDelete.js
-│   │       ├── roleUpdate.js
-│   │       ├── voiceStateUpdate.js
-│   │       ├── inviteCreate.js
-│   │       └── inviteDelete.js
+│   ├── bot/               # Bot core
+│   │   ├── AbyssClient.js # Main client class
+│   │   ├── handlers/       # Event handlers
+│   │   ├── structures/     # Class structures
+│   │   ├── utils/         # Utilities
+│   │   ├── databases/     # Database schemas
+│   │   ├── config/        # Configuration
+│   │   └── events/        # Discord events
 │   │
-│   └── commands/
-│       ├── slash/
-│       │   ├── moderation/
-│       │   │   ├── ban.js
-│       │   │   ├── kick.js
-│       │   │   ├── mute.js
-│       │   │   ├── unmute.js
-│       │   │   ├── warn.js
-│       │   │   ├── warnings.js
-│       │   │   ├── purge.js
-│       │   │   ├── lockdown.js
-│       │   │   ├── slowmode.js
-│       │   │   ├── nickname.js
-│       │   │   ├── role.js
-│       │   │   └── moderationGroup.js
-│       │   │
-│       │   ├── anti/
-│       │   │   ├── antiRaid.js
-│       │   │   ├── antiNuke.js
-│       │   │   ├── antiSpam.js
-│       │   │   ├── autoMod.js
-│       │   │   ├── whitelist.js
-│       │   │   ├── blacklist.js
-│       │   │   └── antiGroup.js
-│       │   │
-│       │   ├── verification/
-│       │   │   ├── setup.js
-│       │   │   ├── verify.js
-│       │   │   ├── captcha.js
-│       │   │   ├── role.js
-│       │   │   ├── log.js
-│       │   │   └── verificationGroup.js
-│       │   │
-│       │   ├── welcome/
-│       │   │   ├── setChannel.js
-│       │   │   ├── setMessage.js
-│       │   │   ├── setImage.js
-│       │   │   ├── setColor.js
-│       │   │   ├── setCanvas.js
-│       │   │   ├── test.js
-│       │   │   └── welcomeGroup.js
-│       │   │
-│       │   ├── goodbye/
-│       │   │   ├── setChannel.js
-│       │   │   ├── setMessage.js
-│       │   │   ├── setImage.js
-│       │   │   ├── setColor.js
-│       │   │   ├── setCanvas.js
-│       │   │   ├── test.js
-│       │   │   └── goodbyeGroup.js
-│       │   │
-│       │   ├── utility/
-│       │   │   ├── ping.js
-│       │   │   ├── uptime.js
-│       │   │   ├── stats.js
-│       │   │   ├── help.js
-│       │   │   ├── userinfo.js
-│       │   │   ├── serverinfo.js
-│       │   │   ├── roleinfo.js
-│       │   │   ├── avatar.js
-│       │   │   ├── banner.js
-│       │   │   ├── invite.js
-│       │   │   └── utilityGroup.js
-│       │   │
-│       │   ├── logging/
-│       │   │   ├── setChannel.js
-│       │   │   ├── setEvents.js
-│       │   │   ├── ignore.js
-│       │   │   ├── test.js
-│       │   │   └── loggingGroup.js
-│       │   │
-│       │   └── owner/
-│       │       ├── eval.js
-│       │       ├── exec.js
-│       │       ├── reload.js
-│       │       ├── restart.js
-│       │       ├── servers.js
-│       │       ├── broadcast.js
-│       │       ├── blacklist.js
-│       │       └── ownerGroup.js
+│   └── commands/          # Command files
+│       ├── slash/         # Slash commands
+│       │   ├── moderation/ # Moderation commands
+│       │   ├── anti/       # Anti-raid/nuke/spam commands
+│       │   ├── verification/ # Verification commands
+│       │   ├── welcome/    # Welcome commands
+│       │   ├── goodbye/    # Goodbye commands
+│       │   ├── utility/    # Utility commands
+│       │   ├── logging/    # Logging commands
+│       │   └── owner/      # Owner commands
 │       │
-│       └── prefix/
-│           ├── moderation/
-│           ├── anti/
-│           ├── verification/
-│           ├── welcome/
-│           ├── goodbye/
-│           ├── utility/
-│           ├── logging/
-│           └── owner/
+│       └── prefix/        # Prefix commands (mirror structure)
 │
-├── dashboard/
-│   ├── index.js
-│   ├── routes/
-│   ├── views/
-│   └── public/
-│
-└── assets/
-    ├── images/
-    │   ├── welcome/
-    │   └── goodbye/
-    └── fonts/
+├── dashboard/             # Web dashboard (optional)
+└── assets/                # Images and fonts
 ```
 
 ---
@@ -590,11 +496,6 @@ heroku config:set TOKEN=your_token
 git push heroku main
 ```
 
-### Option 5: Replit
-- Import from GitHub
-- Add secrets in .env
-- Run npm start
-
 ---
 
 ## 🤝 **Contributing**
@@ -602,7 +503,7 @@ git push heroku main
 We welcome contributions from the community!
 
 ### How to Contribute
-1. Fork the repository
+1. Fork the repository ([https://github.com/rak-dev1/abyss/fork](https://github.com/rak-dev1/abyss/fork))
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
@@ -616,7 +517,7 @@ We welcome contributions from the community!
 - Be respectful to others
 
 ### Reporting Issues
-- Use GitHub Issues
+- Use [GitHub Issues](https://github.com/rak-dev1/abyss/issues)
 - Provide detailed description
 - Include steps to reproduce
 - Add screenshots if applicable
@@ -662,10 +563,10 @@ Get help, suggest features, and connect with other ABYSS users:
   <a href="https://discord.gg/yAmED8qhXd">
     <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord">
   </a>
-  <a href="https://github.com/yourusername/abyss-bot/issues">
+  <a href="https://github.com/rak-dev1/abyss/issues">
     <img src="https://img.shields.io/badge/GitHub%20Issues-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Issues">
   </a>
-  <a href="https://github.com/yourusername/abyss-bot/discussions">
+  <a href="https://github.com/rak-dev1/abyss/discussions">
     <img src="https://img.shields.io/badge/GitHub%20Discussions-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Discussions">
   </a>
 </p>
@@ -673,9 +574,10 @@ Get help, suggest features, and connect with other ABYSS users:
 ### Quick Links
 - 🌐 **Discord Server:** https://discord.gg/yAmED8qhXd
 - 🤖 **Bot Invite:** https://discord.com/oauth2/authorize?client_id=1467842302260281427
-- 📚 **Documentation:** Coming Soon
-- 🐛 **Issue Tracker:** [GitHub Issues](https://github.com/yourusername/abyss-bot/issues)
-- 💡 **Feature Requests:** [GitHub Discussions](https://github.com/yourusername/abyss-bot/discussions)
+- 📚 **Documentation:** [GitHub Wiki](https://github.com/rak-dev1/abyss/wiki)
+- 🐛 **Issue Tracker:** [GitHub Issues](https://github.com/rak-dev1/abyss/issues)
+- 💡 **Feature Requests:** [GitHub Discussions](https://github.com/rak-dev1/abyss/discussions)
+- ⭐ **Star History:** [Star History](https://star-history.com/#rak-dev1/abyss&Date)
 
 ---
 
@@ -683,7 +585,7 @@ Get help, suggest features, and connect with other ABYSS users:
 
 If you find ABYSS useful, please consider giving it a star on GitHub!
 
-[![Star History Chart](https://api.star-history.com/svg?repos=rak-dev1/abyss&type=Date)](https://star-history.com/#yourusername/abyss-bot&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=rak-dev1/abyss&type=Date)](https://star-history.com/#rak-dev1/abyss&Date)
 
 ---
 
@@ -711,6 +613,12 @@ ABYSS wouldn't be possible without these amazing projects:
   <a href="https://discord.gg/yAmED8qhXd">
     <img src="https://img.shields.io/discord/1467842302260281427?color=5865F2&logo=discord&logoColor=white&label=Join%20Us%20on%20Discord&style=for-the-badge" alt="Discord">
   </a>
+  <a href="https://github.com/rak-dev1/abyss">
+    <img src="https://img.shields.io/github/stars/rak-dev1/abyss?style=for-the-badge&logo=github&color=yellow" alt="Stars">
+  </a>
+  <a href="https://github.com/rak-dev1/abyss/fork">
+    <img src="https://img.shields.io/github/forks/rak-dev1/abyss?style=for-the-badge&logo=github&color=blue" alt="Forks">
+  </a>
 </p>
 
 ---
@@ -719,10 +627,10 @@ ABYSS wouldn't be possible without these amazing projects:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/abyss-bot.git
+git clone https://github.com/rak-dev1/abyss.git
 
 # 2. Navigate to directory
-cd abyss-bot
+cd abyss
 
 # 3. Install dependencies
 npm install
@@ -744,4 +652,6 @@ npm start
   <img src="https://img.shields.io/github/contributors/rak-dev1/abyss" alt="Contributors">
   <img src="https://img.shields.io/github/issues/rak-dev1/abyss" alt="Issues">
   <img src="https://img.shields.io/github/issues-pr/rak-dev1/abyss" alt="Pull Requests">
+  <img src="https://img.shields.io/github/repo-size/rak-dev1/abyss" alt="Repo Size">
 </p>
+```
